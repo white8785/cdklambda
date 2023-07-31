@@ -1,3 +1,13 @@
+# What is here?
+This package consists of two AWS Lambda Functions using a Docker container built with AWS CDK.
+
+```
+service_name/src - the primary app code
+service_name/lambdas - Lambda Functions using Docker
+service_name/libs - self explanatory
+service_name/stacks - CloudFormation stacks that deploy the Lambdas
+```
+
 
 # Welcome to your CDK Python project!
 

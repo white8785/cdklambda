@@ -3,11 +3,10 @@ import os
 
 import aws_cdk as cdk
 
-from cdklambda.cdklambda_stack import CdklambdaStack
-
+from service_name.src.stacks.lambdas import LambdaStack
 
 app = cdk.App()
-CdklambdaStack(app, "CdklambdaStack",
+LambdaStack(app, "LambdaStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
@@ -20,9 +19,10 @@ CdklambdaStack(app, "CdklambdaStack",
     # Uncomment the next line if you know exactly what Account and Region you
     # want to deploy the stack to. */
 
-    #env=cdk.Environment(account='123456789012', region='us-east-1'),
+    env=cdk.Environment(account='568134867860', region='us-east-1'),
 
     # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
-    )
+)
 
+# the go button
 app.synth()

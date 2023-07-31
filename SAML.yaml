@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Runtime: python3.8
+    Timeout: 30
+
+Resources:
+  LambdaOneFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: LambdaOneFunctionCode
+      Handler: app.lambda_handler
+      Environment:
+        Variables:
+          MY_ENV_VAR: "some_value"
+
+  LambdaTwoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: LambdaTwoFunctionCode
+      Handler: app.lambda_handler
+
+  # Other Lambda functions and resources can be added here.
+
+Outputs:
+  LambdaOneFunctionArn:
+    Value:
+      Fn::GetAtt:
+        - LambdaOneFunction
+        - Arn
+
+  LambdaTwoFunctionArn:
+    Value:
+      Fn::GetAtt:
+        - LambdaTwoFunction
+        - Arn
